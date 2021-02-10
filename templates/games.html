@@ -6,8 +6,10 @@
     <title>The Game Corner</title>
 </head>
 <body>
-    <h1>Base Template</h1>
-    {% block content %}
-    {% endblock %}
+    {% for game in games %}
+        {{ game.game_name }}<br>
+        {{ game.game_genre }}<br>
+        {{ game.game_description }}<br>
+    {% endfor %}
 </body>
 </html>
