@@ -59,7 +59,7 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+               existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(
                         request.form.get("username")))
@@ -86,6 +86,14 @@ def profile(username):
     if session["user"]:
         return render_template("profile.html", username=username)
 
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    # Remove user from session cookies
+    flash("You have been logged out.")
+    session.pop("user")
     return redirect(url_for("login"))
 
 
