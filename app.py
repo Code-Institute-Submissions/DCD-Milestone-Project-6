@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/all_games")
 def all_games():
-    games = mongo.db.games.find()
+    games = list(mongo.db.games.find())
     return render_template("games.html", games=games)
 
 
@@ -100,6 +100,15 @@ def logout():
 @app.route("/")
 @app.route("/add_review")
 def add_review():
+    if request.method == "POST":
+        review = {
+            "review": request.form.get("review"),
+            "created_by": session["user"]
+        }
+        mongo.db.reviews.insert_one(review)
+        flash("Review Added Successfully")
+        return redirect(url_for("add_review"))
+
     games = mongo.db.games.find()
     return render_template("add_review.html", games=games)
 
