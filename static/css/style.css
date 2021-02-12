@@ -1,5 +1,8 @@
 body {
     background-color: lightgrey;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .text-shadow {
@@ -8,4 +11,12 @@ body {
 
 .flashes h4{
     line-height: 2;
+}
+
+main {
+flex: 1 0 auto;
+}
+
+.page-footer {
+    padding: 0;
 }
