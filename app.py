@@ -97,6 +97,13 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/")
+@app.route("/add_review")
+def add_review():
+    games = mongo.db.games.find()
+    return render_template("add_review.html", games=games)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

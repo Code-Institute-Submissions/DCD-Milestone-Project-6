@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<!--This page lists all games and allows users to edit-->
+{% block content %}
+    {% for game in games %}
+        {{ game.game_name }}<br>
+        {{ game.game_genre }}<br>
+        {{ game.game_description }}<br>
+        <br>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="fas fa-caret-down"></i>Buttons for Add/Edit review go here</div>
+                <div class="collapsible-body"><span>Text input box goes here.</span></div>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}
