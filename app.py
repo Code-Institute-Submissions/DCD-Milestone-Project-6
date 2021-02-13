@@ -97,25 +97,23 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/")
 @app.route("/add_review")
 def add_review():
     if request.method == "POST":
         review = {
-            "review": request.form.get("review"),
-            "created_by": session["user"]
+            "review": request.form.get("review")
         }
         mongo.db.reviews.insert_one(review)
         flash("Review Added Successfully")
         return redirect(url_for("add_review"))
 
-    games = mongo.db.games.find()
+    games = mongo.db.games.find().sort("game_name", 1)
     return render_template("add_review.html", games=games)
 
 
 @app.route("/manage_games")
 def manage_games():
-    games = list(mongo.db.games.find().sort("game_name", 1))
+    games = list(mongo.db.games.find().sort("game_name"))
     return render_template("manage_games.html", games=games)
 
 
