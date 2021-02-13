@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="amber-text center-align text-shadow">Add Game</h3>
+
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('add_game') }}">
+            <!-- Game name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix amber-text"></i>
+                    <input id="game_name" name="game_name"
+                        type="text" class="validate" required>
+                    <label for="game_name">Game Name</label>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large grey darken-2 amber-text text-shadow">
+                        Add Game <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

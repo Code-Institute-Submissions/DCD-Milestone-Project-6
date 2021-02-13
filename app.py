@@ -117,6 +117,19 @@ def manage_games():
     return render_template("manage_games.html", games=games)
 
 
+@app.route("/add_game", methods=["GET", "POST"])
+def add_game():
+    if request.method == "POST":
+        game = {
+            "game_name": request.form.get("game_name")
+        }
+        mongo.db.games.insert_one(game)
+        flash("New Game Added")
+        return redirect(url_for("manage_games"))
+
+    return render_template("add_game.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
