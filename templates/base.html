@@ -26,7 +26,7 @@
                 {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}" class="amber-text lighten-1">Profile</a></li>
                 <li><a href="{{ url_for('add_review') }}" class="amber-text lighten-1">Add Review</a></li>
-                <li><a href="#" class="amber-text lighten-1">Add Games</a></li>
+                <li><a href="{{ url_for('add_games') }}" class="amber-text lighten-1">Add Games</a></li>
                 <li><a href="{{ url_for('logout') }}" class="amber-text lighten-1">Log Out</a></li>
                 {% else %}
                 <li><a href="{{ url_for('login') }}" class="amber-text lighten-1">Log In</a></li>
@@ -43,7 +43,7 @@
             {% if session.user %}
             <li><a href="{{ url_for('profile', username=session['user']) }}" class="amber-text lighten-1">Profile</a></li>
             <li><a href="{{ url_for('add_review') }}" class="amber-text lighten-1">Add Review</a></li>
-            <li><a href="#" class="amber-text lighten-1">Add Games</a></li>
+            <li><a href="{{ url_for('add_games') }}" class="amber-text lighten-1">Add Games</a></li>
             <li><a href="{{ url_for('logout') }}" class="amber-text lighten-1">Log Out</a></li>
             {% else %}
             <li><a href="{{ url_for('login') }}" class="amber-text lighten-1">Log In</a></li>

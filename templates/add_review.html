@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 <!--This page lists all games and allows users to edit-->
 {% block content %}
+
+<h3 class="text-shadow center">Add/Edit Reviews</h3>
+
     {% for game in games %}
 
         <div class="row card-panel grey lighten-5">
@@ -31,25 +34,27 @@
 
             {% endif %}
 
-            <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header grey darken-2 amber-text text-shadow"><i class="fas fa-caret-down"></i>Buttons for Add/Edit review go here</div>
-                    <div class="collapsible-body white">
-                        <div class="input-field" method="POST" action="{{ url_for('add_review') }}" >
-                            <i class="fas fa-pen prefix"></i>
-                            <textarea id="review" name="review" class="materialize-textarea validate" required></textarea>
-                            <label for="review">Write your review here</label>
-                        </div>
-                        <!--Submit button-->
-                        <div class="row">
-                            <div class="col s12 center-align">
-                                <button type="submit" class="btn-medium grey darken-2 amber-text text-shadow">
-                                    Submit <i class="fas fa-plus-square right"></i></button>
+            <form method="POST" action="{{ url_for('add_review') }}" >
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header grey darken-2 amber-text text-shadow"><i class="fas fa-caret-down"></i>Buttons for Add/Edit review go here</div>
+                        <div class="collapsible-body white">
+                            <div class="input-field">
+                                <i class="fas fa-pen prefix"></i>
+                                <textarea id="review" name="review" class="materialize-textarea validate" required></textarea>
+                                <label for="review">Write your review here</label>
+                            </div>
+                            <!--Submit button-->
+                            <div class="row">
+                                <div class="col s12 center-align">
+                                    <button type="submit" class="btn-medium grey darken-2 amber-text text-shadow waves-effect waves-light">
+                                        Submit <i class="fas fa-plus-square right"></i></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </form>
         </div>
     {% endfor %}
 {% endblock %}
