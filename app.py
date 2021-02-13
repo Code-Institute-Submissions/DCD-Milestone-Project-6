@@ -121,7 +121,9 @@ def manage_games():
 def add_game():
     if request.method == "POST":
         game = {
-            "game_name": request.form.get("game_name")
+            "game_name": request.form.get("game_name"),
+            "game_genre": request.form.get("game_genre"),
+            "game_description": request.form.get("game_description"),
         }
         mongo.db.games.insert_one(game)
         flash("New Game Added")
