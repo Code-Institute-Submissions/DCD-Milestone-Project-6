@@ -113,10 +113,10 @@ def add_review():
     return render_template("add_review.html", games=games)
 
 
-@app.route("/add_games")
-def add_games():
+@app.route("/manage_games")
+def manage_games():
     games = list(mongo.db.games.find().sort("game_name", 1))
-    return render_template("add_games.html", games=games)
+    return render_template("manage_games.html", games=games)
 
 
 if __name__ == "__main__":
