@@ -24,13 +24,15 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger left"><i class="fas fa-bars amber-text"></i></a>
             <ul class="right hide-on-med-and-down">
                 {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}" class="amber-text lighten-1">Profile</a></li>
-                <li><a href="{{ url_for('add_review') }}" class="amber-text lighten-1">Add Review</a></li>
-                <li><a href="{{ url_for('manage_games') }}" class="amber-text lighten-1">Manage Games</a></li>
-                <li><a href="{{ url_for('logout') }}" class="amber-text lighten-1">Log Out</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}" class="amber-text lighten-1">Profile</a></li>
+                    <li><a href="{{ url_for('add_review') }}" class="amber-text lighten-1">Add Review</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('manage_games') }}" class="amber-text lighten-1">Manage Games</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('logout') }}" class="amber-text lighten-1">Log Out</a></li>
                 {% else %}
-                <li><a href="{{ url_for('login') }}" class="amber-text lighten-1">Log In</a></li>
-                <li><a href="{{ url_for('register') }}" class="amber-text lighten-1">Register</a></li>
+                    <li><a href="{{ url_for('login') }}" class="amber-text lighten-1">Log In</a></li>
+                    <li><a href="{{ url_for('register') }}" class="amber-text lighten-1">Register</a></li>
                 {% endif %}
             </ul>
             </div>
@@ -41,13 +43,15 @@
             <li><h4 class="center-align">Menu</h4></li>
             <li><a href="{{ url_for('all_games') }}" class="amber-text lighten-1">Home</a></li>
             {% if session.user %}
-            <li><a href="{{ url_for('profile', username=session['user']) }}" class="amber-text lighten-1">Profile</a></li>
-            <li><a href="{{ url_for('add_review') }}" class="amber-text lighten-1">Add Review</a></li>
-            <li><a href="{{ url_for('manage_games') }}" class="amber-text lighten-1">Manage Games</a></li>
-            <li><a href="{{ url_for('logout') }}" class="amber-text lighten-1">Log Out</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="amber-text lighten-1">Profile</a></li>
+                <li><a href="{{ url_for('add_review') }}" class="amber-text lighten-1">Add Review</a></li>
+            {% if session.user|lower == "admin"|lower %}
+                <li><a href="{{ url_for('manage_games') }}" class="amber-text lighten-1">Manage Games</a></li>
+            {% endif %}
+                <li><a href="{{ url_for('logout') }}" class="amber-text lighten-1">Log Out</a></li>
             {% else %}
-            <li><a href="{{ url_for('login') }}" class="amber-text lighten-1">Log In</a></li>
-            <li><a href="{{ url_for('register') }}" class="amber-text lighten-1">Register</a></li>
+                <li><a href="{{ url_for('login') }}" class="amber-text lighten-1">Log In</a></li>
+                <li><a href="{{ url_for('register') }}" class="amber-text lighten-1">Register</a></li>
             {% endif %}
         </ul>
             
