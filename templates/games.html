@@ -16,6 +16,7 @@
                     <p>{{ game.game_description }}</p>
                     {% for review in reviews %}
                         <p>{{ review.review }}</p>
+                        <p>by: {{ review.created_by }}</p>
                     {% endfor %}
                 </div>
                 <div class="col-md-5">

@@ -101,11 +101,12 @@ def logout():
 def add_review():
     if request.method == "POST":
         review = {
-            "review": request.form.get("review")
+            "review": request.form.get("review"),
+            "created_by": session["user"]
         }
         mongo.db.reviews.insert_one(review)
         flash("Review Added Successfully")
-        return redirect(url_for("add_review"))
+        return redirect(url_for("all_games"))
 
     games = mongo.db.games.find().sort("game_name")
     return render_template("add_review.html", games=games)

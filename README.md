@@ -31,12 +31,15 @@ They should also be able to provide a rating for the game as part of the review.
 
 Functional requirements include: a user-friendly navigation menu, a search bar, working templates for games and reviews to be added, database functionality that stores user login information and ability to create new accounts, with authentication.
 In addition, the website should be responsive for various screen sizes, whilst maintaining the same level of functionality.
+The main functionality of the website is to allow users to create, read, update, and delete data, known as CRUD. 
+The data created is stored in a database, and can be read through various pages on the website. The users also have the option to update and edit the data they have submitted, as well as delete it altogether.
+A search field allows users to search for specific titles they are interested in
 
 **Content Requirements**
 
 The content of the site should include a header and image, as well as a navigation menu. 
 A search bar should allow users to search for video game titles.
-For each game, an image should be included, as well as its title, which platforms it is available on, and a short description of the game.
+For each game, an image should be included, as well as its title, the genre of the game, and a short description of the game.
 An input field for users will allow them to add reviews for each game, and they are also able to provide a rating, which will be compiled as a list alongside other user reviews.
 
 **3. Structure**
@@ -70,9 +73,32 @@ Notes describing each wireframe are included below each page of the PDF, linked 
 
 ### Existing Features
 
+1. Register functionality
+2. Login functionality
+3. Log out functionality
+4. Profile page
+5. Admin can create new game categories
+6. Users can view existing games
+7. Working navbar
+
 ### Upcoming Features
 
+1. Edit/Delete functionality
+2. Search bar
+3. Images
+
 ## Technologies Used
+
+The main technologies used for this project are as follows:
+
+1. HTML5 - Used to create the basic code and structure for the website
+2. CSS3 - Used to style the elements of the webpage
+3. JavaScript - For the logic of some of the elements
+4. Flask Framework - Used as the main framework for the website
+5. MongoDB - Used to store and retrieve the data created from the website.
+6. Python version 3.8.7 - Used for routing and support alongside MongoDB and for interaction between pages
+7. JQuery - Used to create elements such as colla[sible menu components
+8. Materialize CSS - To provide styling and structure for the elements on the webpage.
 
 ## Testing
 
@@ -83,9 +109,13 @@ Notes describing each wireframe are included below each page of the PDF, linked 
 
 ## Deployment
 
+The project is deployed using Heroku, with the repository on GitHub,
+
 ## Credits
 
 ### Content
+
+The content was created by following the Code Institute tutorial for the Flask Task Manager project, and heavily modified by myself to suit my use case.
 
 ### Media
 
