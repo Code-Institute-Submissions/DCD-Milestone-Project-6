@@ -1,3 +1,4 @@
+# Configuration code
 import os
 from flask import (
     Flask, flash, render_template,
@@ -18,6 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Route for home page, displays all games from database
 @app.route("/")
 @app.route("/all_games")
 def all_games():
@@ -25,6 +27,7 @@ def all_games():
     return render_template("games.html", games=games)
 
 
+# Route for register page
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -49,6 +52,7 @@ def register():
     return render_template("register.html")
 
 
+# Route for login page
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -77,6 +81,7 @@ def login():
     return render_template("login.html")
 
 
+# Displays Profile page and username in URL
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # Retrieve username from MongoDB
@@ -89,6 +94,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# Route for logout link
 @app.route("/logout")
 def logout():
     # Remove user from session cookies
@@ -97,6 +103,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Route for add review page
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
@@ -112,12 +119,14 @@ def add_review():
     return render_template("add_review.html", games=games)
 
 
+# Route for Admin to manage games
 @app.route("/manage_games")
 def manage_games():
     games = list(mongo.db.games.find().sort("game_name"))
     return render_template("manage_games.html", games=games)
 
 
+# Route for Admin to add games
 @app.route("/add_game", methods=["GET", "POST"])
 def add_game():
     if request.method == "POST":
