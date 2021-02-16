@@ -106,10 +106,22 @@ The main technologies used for this project are as follows:
 
 | User Story | Description | Testing |
 |:----------:|:-----------:|:-------:|
+| 1.| As a user, I would like to be able to search for specific video games and look at reviews. | |
+| 2.| As a user, I want to create an account so I can add my own reviews. | New users are able to create an account from the 'Register' page once the required fields for username and password are filled out correctly. Both fields require input for a user account to be created. The new user is directed to a profile page and is then able to freely navigate the site to view games and create reviews.
+| 3.| As a user, I want to log in to my existing account to add or edit my reviews. | |
+| 4.| As a user, I want to be able to save my review for other users to view. | |
+| 5.| As an admin, I want to add new games to the site for users. | The Admin is able to log in through their user credentials and access the 'Manage Games' page, in which they are able to add, edit, or delete games listed on the website. These changes are then updated on the 'Add Review' page and the home page for all users. |
+
+**functionality Testing**
+
+-- All navigation links have been tested and link to the respective pages correctly.
+-- New games added by the Admin user type are displayed on the website correctly.
+-- Login and registration authentication works correctly and prevents empty fields from being submitted.
+-- When adding a review, empty fields can not be submitted.
 
 ## Deployment
 
-The project is deployed using Heroku, with the repository on GitHub,
+The project is deployed using Heroku, with the repository on GitHub.
 
 ## Credits
 
