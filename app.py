@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/all_games")
 def all_games():
-    games = list(mongo.db.games.find())
+    games = list(mongo.db.games.find().sort("game_name"))
     return render_template("games.html", games=games)
 
 
@@ -157,6 +157,7 @@ def add_game():
     return render_template("add_game.html")
 
 
+# Edit games functionality
 @app.route("/edit_game/<game_id>", methods=["GET", "POST"])
 def edit_game(game_id):
     if request.method == "POST":
@@ -170,6 +171,14 @@ def edit_game(game_id):
         flash("Game Updated")
     game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
     return render_template("manage_games.html", game=game)
+
+
+# Delete games functionality
+@app.route("/delete_game/<game_id>")
+def delete_game(game_id):
+    mongo.db.games.remove({"_id": ObjectId(game_id)})
+    flash("Game Deleted")
+    return redirect(url_for("manage_games"))
 
 
 if __name__ == "__main__":
