@@ -36,14 +36,13 @@
         <br>
     </div>
     <div class="col-md-5">
-        <img src="/workspace/DCD-Milestone-Project-3/static/img/doom-eternal.jpg" alt="Doom Eternal"
-            class="image-responsive">
+        <img src="{{ game.game_img }}" alt="" class="image-responsive" width="200" height="200">
     </div>
 
     {% else %}
 
     <div class="col-md-5">
-        <img src="#" alt="" class="image-responsive">
+        <img src="{{ game.game_img }}" alt="" class="image-responsive" width="200" height="200">
     </div>
     <div class="col-md-7">
         <h4>{{ game.game_name }}</h4>

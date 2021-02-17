@@ -71,11 +71,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # Invalid password
                 flash("Username and/or Password is incorrect")
@@ -148,6 +148,7 @@ def add_game():
             "game_name": request.form.get("game_name"),
             "game_genre": request.form.get("game_genre"),
             "game_description": request.form.get("game_description"),
+            "game_img": request.form.get("game_img"),
         }
         mongo.db.games.insert_one(game)
         flash("New Game Added")
