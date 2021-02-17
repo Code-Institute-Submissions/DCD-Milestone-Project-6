@@ -27,6 +27,13 @@ def all_games():
     return render_template("games.html", games=games)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    games = list(mongo.db.games.find({"$text": {"$search": query}}))
+    return render_template("games.html", games=games)
+
+
 # Route for register page
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -116,6 +123,13 @@ def add_review():
         return redirect(url_for("all_games"))
 
     games = mongo.db.games.find().sort("game_name")
+    return render_template("add_review.html", games=games)
+
+
+@app.route("/search-reviews", methods=["GET", "POST"])
+def search_reviews():
+    query = request.form.get("query")
+    games = list(mongo.db.games.find({"$text": {"$search": query}}))
     return render_template("add_review.html", games=games)
 
 

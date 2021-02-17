@@ -4,57 +4,79 @@
 
 <h3 class="text-shadow center">Add/Edit Reviews</h3>
 
-    {% for game in games %}
-
-        <div class="row card-panel grey lighten-5">
-
-            {% if loop.index % 2 != 0 %}
-
-                <div class="col-md-7">
-                    <h4>{{ game.game_name }}</h4>
-                    <p>{{ game.game_genre }}</p>
-                    <p>{{ game.game_description }}</p>
-                    <br>
-                </div>
-                <div class="col-md-5">
-                    <img src="#" alt="" class="image-responsive">
-                </div>
-            
-            {% else %}
-
-                <div class="col-md-5">
-                    <img src="#" alt="" class="image-responsive">
-                </div>
-                <div class="col-md-7">
-                    <h4>{{ game.game_name }}</h4>
-                    <p>{{ game.game_genre }}</p>
-                    <p>{{ game.game_description }}</p>
-                    <br>
-                </div>
-
-            {% endif %}
-
-            <form method="POST" action="{{ url_for('add_review') }}" >
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header grey darken-2 amber-text text-shadow"><i class="fas fa-caret-down"></i>Buttons for Add/Edit review go here</div>
-                        <div class="collapsible-body white">
-                            <div class="input-field">
-                                <i class="fas fa-pen prefix"></i>
-                                <textarea id="review" name="review" class="materialize-textarea validate" required></textarea>
-                                <label for="review">Write your review here</label>
-                            </div>
-                            <!--Submit button-->
-                            <div class="row">
-                                <div class="col s12 center-align">
-                                    <button type="submit" class="btn-medium grey darken-2 amber-text text-shadow waves-effect waves-light">
-                                        Submit <i class="fas fa-plus-square right"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </form>
+<div class="row card-panel grey lighten-5">
+    <form action="{{ url_for('search_reviews') }}" method="post" class="col s12">
+        <div class="row valign-wrapper center-align">
+            <div class="input-field col s12 m8">
+                <i class="fas fa-search prefix"></i>
+                <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                <label for="query">Search Reviews</label>
+            </div>
+            <div class="col s12 m4">
+                <a href="{{ url_for('add_review') }}" class="btn red lighten-1 text-shadow"><i
+                        class="fas fa-undo left"></i>Reset</a>
+                <button type="submit" class="green accent-4 btn text-shadow">
+                    <i class="fas fa-search left"></i> Search
+                </button>
+            </div>
         </div>
-    {% endfor %}
+    </form>
+</div>
+
+{% for game in games %}
+
+<div class="row card-panel grey lighten-5">
+
+    {% if loop.index % 2 != 0 %}
+
+    <div class="col-md-7">
+        <h4>{{ game.game_name }}</h4>
+        <p>{{ game.game_genre }}</p>
+        <p>{{ game.game_description }}</p>
+        <br>
+    </div>
+    <div class="col-md-5">
+        <img src="/workspace/DCD-Milestone-Project-3/static/img/doom-eternal.jpg" alt="Doom Eternal"
+            class="image-responsive">
+    </div>
+
+    {% else %}
+
+    <div class="col-md-5">
+        <img src="#" alt="" class="image-responsive">
+    </div>
+    <div class="col-md-7">
+        <h4>{{ game.game_name }}</h4>
+        <p>{{ game.game_genre }}</p>
+        <p>{{ game.game_description }}</p>
+        <br>
+    </div>
+
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('add_review') }}">
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header grey darken-2 amber-text text-shadow"><i
+                        class="fas fa-caret-down"></i>Buttons for Add/Edit review go here</div>
+                <div class="collapsible-body white">
+                    <div class="input-field">
+                        <i class="fas fa-pen prefix"></i>
+                        <textarea id="review" name="review" class="materialize-textarea validate" required></textarea>
+                        <label for="review">Write your review here</label>
+                    </div>
+                    <!--Submit button-->
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button type="submit"
+                                class="btn-medium grey darken-2 amber-text text-shadow waves-effect waves-light">
+                                Submit <i class="fas fa-plus-square right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+{% endfor %}
 {% endblock %}
