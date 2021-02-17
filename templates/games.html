@@ -34,8 +34,8 @@
         <p>{{ game.game_genre }}</p>
         <p>{{ game.game_description }}</p>
         {% for review in reviews %}
-        <p>{{ review.review }}</p>
-        <p>by: {{ review.created_by }}</p>
+            <p>{{ review.review }}</p>
+            <p>by: {{ review.created_by }}</p>
         {% endfor %}
     </div>
     <div class="col-md-5 center">
@@ -51,6 +51,10 @@
         <h4>{{ game.game_name }}</h4>
         <p>{{ game.game_genre }}</p>
         <p>{{ game.game_description }}</p>
+        {% for review in reviews %}
+            <p>{{ review.review }}</p>
+            <p>by: {{ review.created_by }}</p>
+        {% endfor %}
     </div>
 
     {% endif %}

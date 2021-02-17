@@ -24,7 +24,8 @@ mongo = PyMongo(app)
 @app.route("/all_games")
 def all_games():
     games = list(mongo.db.games.find().sort("game_name"))
-    return render_template("games.html", games=games)
+    reviews = mongo.db.reviews.find()
+    return render_template("games.html", games=games, reviews=reviews)
 
 
 @app.route("/search", methods=["GET", "POST"])
