@@ -2,7 +2,7 @@
 <!--This page lists all games, with no editing features-->
 {% block content %}
 
-<h3 class="text-shadow center">All Games</h3>
+<h3 class="amber-text darken-2 text-shadow center">All Games</h3>
 
 <div class="row card-panel grey lighten-5">
     <form action="{{ url_for('search') }}" method="post" class="col s12">
@@ -38,13 +38,13 @@
         <p>by: {{ review.created_by }}</p>
         {% endfor %}
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 center">
         <img src="{{ game.game_img }}" alt="" class="image-responsive" width="200" height="200">
     </div>
 
     {% else %}
 
-    <div class="col-md-5">
+    <div class="col-md-5 center">
         <img src="{{ game.game_img }}" alt="" class="image-responsive" width="200" height="200">
     </div>
     <div class="col-md-7">

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-shadow center">Manage Games</h3>
+<h3 class="amber-text darken-2 text-shadow center">Manage Games</h3>
 
 <div class="row">
     <div class="col s12 center-align">
@@ -19,7 +19,7 @@
                     <span class="card-title amber-text">{{ game.game_name }}</span>
                 </div>
                 <div class="card-action">
-                    <a href="#" class="btn green accent-4">Edit</a>
+                    <a href="{{ url_for('edit_game', game_id=game._id) }}" class="btn green accent-4">Edit</a>
                     <a href="#" class="btn red lighten-1">Delete</a>
                 </div>
             </div>
