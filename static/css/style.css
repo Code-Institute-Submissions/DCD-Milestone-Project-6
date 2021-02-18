@@ -58,6 +58,15 @@ body > header > nav > div > a.sidenav-trigger.left {
     line-height: 2;
 }
 
+.btn {
+    border-radius: 10px;
+}
+
+.btn-small {
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
 main {
 flex: 1 0 auto;
 }

@@ -6,6 +6,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from operator import itemgetter
 if os.path.exists("env.py"):
     import env
 
@@ -117,7 +118,9 @@ def add_review():
     if request.method == "POST":
         review = {
             "review": request.form.get("review"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "game_id": map(itemgetter('_id'), list(
+                mongo.db.games.find({"_id": ObjectId()}))),
         }
         mongo.db.reviews.insert_one(review)
         flash("Review Added Successfully")
