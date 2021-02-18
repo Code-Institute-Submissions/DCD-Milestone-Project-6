@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 /*--Main body styling */
 body {
     background-color: lightgrey;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-family: 'Roboto Mono', monospace;;
 }
 
 /*--Displays logo correctly on lower screen sizes */
