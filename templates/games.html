@@ -15,8 +15,8 @@
         </div>
         <div class="row valign-wrapper center-align">
             <div class="col s12 m4 offset-m4 center">
-                <a href="{{ url_for('all_games') }}" class="btn red lighten-1 text-shadow"><i
-                        class="fas fa-undo left"></i>Reset</a>
+                <a href="{{ url_for('all_games') }}" class="btn red lighten-1 text-shadow">
+                    <i class="fas fa-undo left"></i>Reset</a>
                 <button type="submit" class="green accent-4 btn text-shadow">
                     <i class="fas fa-search left"></i> Search
                 </button>
@@ -31,31 +31,31 @@
 
     {% if loop.index % 2 != 0 %}
 
-    <div class="col-md-7">
+    <div class="col s12 m7 center">
         <h4>{{ game.game_name }}</h4>
         <p>{{ game.game_genre }}</p>
         <p>{{ game.game_description }}</p>
         {% for review in reviews %}
-            <p>{{ review.review }}</p>
-            <p>by: {{ review.created_by }}</p>
+        <p>{{ review.review }}</p>
+        <p>by: {{ review.created_by }}</p>
         {% endfor %}
     </div>
-    <div class="col-md-5 center">
+    <div class="col s12 m5 center">
         <img src="{{ game.game_img }}" alt="" class="image-responsive" width="200" height="200">
     </div>
 
     {% else %}
 
-    <div class="col-md-5 center">
+    <div class="col s12 m5 center">
         <img src="{{ game.game_img }}" alt="" class="image-responsive" width="200" height="200">
     </div>
-    <div class="col-md-7">
+    <div class="col s12 m7 center">
         <h4>{{ game.game_name }}</h4>
         <p>{{ game.game_genre }}</p>
         <p>{{ game.game_description }}</p>
         {% for review in reviews %}
-            <p>{{ review.review }}</p>
-            <p>by: {{ review.created_by }}</p>
+        <p>{{ review.review }}</p>
+        <p>by: {{ review.created_by }}</p>
         {% endfor %}
     </div>
 

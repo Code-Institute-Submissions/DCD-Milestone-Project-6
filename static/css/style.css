@@ -18,6 +18,19 @@ body {
     body > header > nav > div > a.brand-logo.center.amber-text > i {
         display: contents;
     }
+    nav .brand-logo {
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    nav.nav-extended .nav-wrapper {
+        min-height: 75px;
+    }
+}
+
+body > header > nav > div > ul {
+    margin-top: 30px;
 }
 
 /*--Sidenav trigger positioning */
@@ -25,6 +38,16 @@ body > header > nav > div > a.sidenav-trigger.left {
     margin: 0px;
     padding-right: 10px;
     padding-left: 10px;
+}
+
+.card-panel {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.collapsible-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .text-shadow {
