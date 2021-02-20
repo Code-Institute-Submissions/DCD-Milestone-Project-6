@@ -119,8 +119,7 @@ def add_review():
         review = {
             "review": request.form.get("review"),
             "created_by": session["user"],
-            "game_id": map(itemgetter('_id'), list(
-                mongo.db.games.find({"_id": ObjectId()}))),
+            "game_id": list(mongo.db.games.find({"_id": ObjectId()})),
         }
         mongo.db.reviews.insert_one(review)
         flash("Review Added Successfully")
@@ -128,6 +127,13 @@ def add_review():
 
     games = mongo.db.games.find().sort("game_name")
     return render_template("add_review.html", games=games)
+
+
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    games = mongo.db.games.find().sort("game_name")
+    return render_template("edit_review.html", review=review, games=games)
 
 
 @app.route("/search-reviews", methods=["GET", "POST"])
