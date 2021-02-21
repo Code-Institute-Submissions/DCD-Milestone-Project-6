@@ -40,25 +40,29 @@
     <div class="col s12 m5 center">
         <img src="{{ game.game_img }}" alt="" class="image-responsive" width="200" height="200">
     </div>
-    <ul class="collapsible">
-        <li>
-            <div class="collapsible-header grey darken-2 amber-text text-shadow">
-                <i class="fas fa-caret-down"></i>User Reviews
-            </div>
-            <div class="collapsible-body">
-                <div class="row">
-                    <div class="col s12 m8 offset-m2 center">
-                        {% for review in reviews %}
-                        <div class="card">
-                            <p>{{ review.review }}</p>
-                            <p>by: {{ review.created_by }}</p>
-                        </div>
-                        {% endfor %}
+    <div class="row">
+        <div class="col s12">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header grey darken-2 amber-text text-shadow">
+                        <i class="fas fa-caret-down"></i>User Reviews
                     </div>
-                </div>
-            </div>
-        </li>
-    </ul>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col s12 m8 offset-m2 center">
+                                {% for review in reviews %}
+                                <div class="card grey darken-2 amber-text text-shadow">
+                                    <p>{{ review.review }}</p>
+                                    <p>by: {{ review.created_by }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     {% else %}
 
@@ -71,25 +75,29 @@
         <p>{{ game.game_description }}</p>
         <a href="{{ url_for('add_review', game_id=game._id) }}">Add Review</a>
     </div>
-    <ul class="collapsible">
-        <li>
-            <div class="collapsible-header grey darken-2 amber-text text-shadow">
-                <i class="fas fa-caret-down"></i>User Reviews
-            </div>
-            <div class="collapsible-body">
-                <div class="row">
-                    <div class="col s12 m8 offset-m2 center">
-                        {% for review in reviews %}
-                        <div class="card">
-                            <p>{{ review.review }}</p>
-                            <p>by: {{ review.created_by }}</p>
-                        </div>
-                        {% endfor %}
+    <div class="row">
+        <div class="col s12">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header grey darken-2 amber-text text-shadow">
+                        <i class="fas fa-caret-down"></i>User Reviews
                     </div>
-                </div>
-            </div>
-        </li>
-    </ul>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col s12 m8 offset-m2 center">
+                                {% for review in reviews %}
+                                <div class="card grey darken-2 amber-text text-shadow">
+                                    <p>{{ review.review }}</p>
+                                    <p>by: {{ review.created_by }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
     {% endif %}
 
 </div>
