@@ -6,7 +6,6 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from operator import itemgetter
 if os.path.exists("env.py"):
     import env
 
@@ -25,7 +24,7 @@ mongo = PyMongo(app)
 @app.route("/all_games")
 def all_games():
     games = list(mongo.db.games.find().sort("game_name"))
-    reviews = mongo.db.reviews.find()
+    reviews = mongo.db.reviews.find().sort("game_id")
     return render_template("games.html", games=games, reviews=reviews)
 
 
@@ -113,20 +112,20 @@ def logout():
 
 
 # Route for add review page
-@app.route("/add_review", methods=["GET", "POST"])
-def add_review():
+@app.route("/add_review/<game_id>", methods=["GET", "POST"])
+def add_review(game_id):
     if request.method == "POST":
         review = {
             "review": request.form.get("review"),
             "created_by": session["user"],
-            "game_id": list(mongo.db.games.find({"_id": ObjectId()})),
+            "game_id": game_id,
         }
         mongo.db.reviews.insert_one(review)
         flash("Review Added Successfully")
         return redirect(url_for("all_games"))
 
-    games = mongo.db.games.find().sort("game_name")
-    return render_template("add_review.html", games=games)
+    game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
+    return render_template("add_review.html", game=game)
 
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])

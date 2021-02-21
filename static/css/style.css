@@ -45,6 +45,19 @@ body > header > nav > div > a.sidenav-trigger.left {
     padding-right: 0;
 }
 
+img {
+    margin-bottom: 5px;
+}
+
+.collapsible {
+    box-shadow: none !important;
+    border: none;
+}
+
+.collapsible-header {
+    margin-top: 15px;
+}
+
 .collapsible-body {
     padding-left: 1rem;
     padding-right: 1rem;
