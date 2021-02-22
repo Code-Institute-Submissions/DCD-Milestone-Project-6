@@ -81,6 +81,10 @@ img {
     border-radius: 10px;
 }
 
+div.col.s12.m7.center > a {
+    margin-bottom: 15px;
+}
+
 main {
 flex: 1 0 auto;
 }
