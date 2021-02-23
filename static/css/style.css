@@ -46,6 +46,10 @@ body > header > nav > div > a.sidenav-trigger.left {
     padding-bottom: 0;
 }
 
+#profile-card {
+    padding-bottom: 24px;
+}
+
 img {
     margin-bottom: 5px;
 }
