@@ -130,18 +130,11 @@ def add_review(game_id):
     return render_template("add_review.html", game=game)
 
 
-@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
-def edit_review(review_id):
-    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    games = mongo.db.games.find().sort("game_name")
-    return render_template("edit_review.html", review=review, games=games)
-
-
-@app.route("/search-reviews", methods=["GET", "POST"])
-def search_reviews():
-    query = request.form.get("query")
-    games = list(mongo.db.games.find({"$text": {"$search": query}}))
-    return render_template("add_review.html", games=games)
+@app.route("/edit_review/<game_id>", methods=["GET", "POST"])
+def edit_review(game_id):
+    review = mongo.db.reviews.find_one({"_id": ObjectId(game_id)})
+    game = mongo.db.games.find().sort("game_name")
+    return render_template("edit_review.html", review=review, game=game)
 
 
 # Route for Admin to manage games
