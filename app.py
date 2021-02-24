@@ -130,20 +130,29 @@ def add_review(game_id):
     return render_template("add_review.html", game=game)
 
 
-@app.route("/edit_review/<game_id>", methods=["GET", "POST"])
-def edit_review(game_id):
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
     if request.method == "POST":
-        submit = {
+        review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+        game_id = review["game_id"]
+        edited = {
             "review": request.form.get("review"),
             "created_by": session["user"],
             "game_id": ObjectId(game_id),
         }
-        mongo.db.reviews.update({"_id": ObjectId(game_id)}, submit)
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, edited)
         flash("Review Edited Successfully")
-
-    review = mongo.db.reviews.find_one({"_id": ObjectId(game_id)})
+        return redirect(url_for("all_games"))
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     game = mongo.db.games.find().sort("game_name")
     return render_template("edit_review.html", review=review, game=game)
+
+
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Review Deleted")
+    return redirect(url_for("all_games"))
 
 
 # Route for Admin to manage games
@@ -182,8 +191,9 @@ def edit_game(game_id):
         }
         mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
         flash("Game Updated")
+        return redirect(url_for("manage_games"))
     game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
-    return render_template("manage_games.html", game=game)
+    return render_template("edit_game.html", game=game)
 
 
 # Delete games functionality

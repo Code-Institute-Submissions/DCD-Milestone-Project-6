@@ -58,9 +58,12 @@
                                     <p>by: {{ review.created_by }}</p>
                                 </div>
                                 {% if session.user == review.created_by %}
-                                <a href="{{ url_for('edit_review', game_id=game._id) }}"
+                                <a href="{{ url_for('edit_review', review_id=review._id) }}"
                                     class="btn grey darken-2 amber-text text-shadow">
                                     <i class="fas fa-plus-square prefix"></i> Edit Review</a>
+                                <a href="{{ url_for('delete_review', review_id=review._id) }}"
+                                    class="btn grey darken-2 amber-text text-shadow">
+                                    <i class="fas fa-times-circle"></i> Delete Review</a>
                                 {% endif %}
                                 {% endif %}
                                 {% endfor %}
@@ -101,11 +104,14 @@
                                     <p>{{ review.review }}</p>
                                     <p>by: {{ review.created_by }}</p>
                                 </div>
-                                    {% if session.user == review.created_by %}
-                                    <a href="{{ url_for('edit_review', game_id=game._id) }}"
-                                        class="btn grey darken-2 amber-text text-shadow">
-                                        <i class="fas fa-plus-square prefix"></i> Edit Review</a>
-                                    {% endif %}
+                                {% if session.user == review.created_by %}
+                                <a href="{{ url_for('edit_review', review_id=review._id) }}"
+                                    class="btn grey darken-2 amber-text text-shadow">
+                                    <i class="fas fa-plus-square prefix"></i> Edit Review</a>
+                                <a href="{{ url_for('delete_review', review_id=review._id) }}"
+                                    class="btn grey darken-2 amber-text text-shadow">
+                                    <i class="fas fa-times-circle"></i> Delete Review</a>
+                                {% endif %}
                                 {% endif %}
                                 {% endfor %}
                             </div>

@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row">
-    <form method="POST" action="{{ url_for('edit_review', game_id=game._id) }}" class="col s12">
+    <form method="POST" action="{{ url_for('edit_review', review_id=review._id) }}" class="col s12">
         <ul class="collapsible">
             <li>
                 <div class="collapsible-header grey darken-2 amber-text text-shadow">
@@ -13,7 +13,8 @@
                     <div class="input-field">
                         <i class="fas fa-pen prefix"></i>
                         <textarea id="review" name="review" minlength="5"
-                            class="materialize-textarea validate black-text" required>
+                            class="materialize-textarea validate" required>
+                            {{- review.review -}}
                             </textarea>
                         <label for="review">Write your review here</label>
                     </div>
