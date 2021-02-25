@@ -35,8 +35,10 @@
         <h4>{{ game.game_name }}</h4>
         <p>{{ game.game_genre }}</p>
         <p>{{ game.game_description }}</p>
+        {% if session.user %}
         <a href="{{ url_for('add_review', game_id=game._id) }}" class="btn grey darken-2 amber-text text-shadow">
             <i class="fas fa-plus-square prefix"></i> Add Review</a>
+        {% endif %}
     </div>
     <div class="col s12 m5 center">
         <img src="{{ game.game_img }}" alt="" class="image-responsive" width="200" height="200">
@@ -84,8 +86,10 @@
         <h4>{{ game.game_name }}</h4>
         <p>{{ game.game_genre }}</p>
         <p>{{ game.game_description }}</p>
+        {% if session.user %}
         <a href="{{ url_for('add_review', game_id=game._id) }}" class="btn grey darken-2 amber-text text-shadow">
             <i class="fas fa-plus-square prefix"></i> Add Review</a>
+        {% endif %}
     </div>
     <div class="row">
         <div class="col s12">
