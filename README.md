@@ -7,10 +7,14 @@ The website allows user input to search for and view information about various v
 Additionally, new games can be added and removed by the admin.
 This website is my Milestone Project 3 for the Full Stack Developer course on code institute
 
+---
+
 ## User Experience (UX)
 The goal of this website is to provide a satisfactory user experience and allow video game fans and critics to write their own opinion pieces on popular video game titles.
 The website should allow users to easily log in or register, and search for the video game title they wish to view.
 The user should then be able to easily add or edit their reviews as well as view reviews created by other users.
+
+---
 
 ### User Stories
 1. As a user, I would like to be able to search for specific video games and look at reviews.
@@ -18,6 +22,8 @@ The user should then be able to easily add or edit their reviews as well as view
 3. As a user, I want to log in to my existing account to add or edit my reviews.
 4. As a user, I want to be able to save my review for other users to view.
 5. As an admin, I want to add new games to the site for users.
+
+---
 
 ### UX Framework
 
@@ -68,11 +74,15 @@ The surface design of the website will also utilise Materialize CSS to provide a
 Google Fonts is used to style the text using the 'Roboto Mono' font, and FontAwesome is used for various icons.
 The colour scheme is designed to be visually appealing to the target audience of gamers, and provide clear readability as well as being responsive.
 
+---
+
 ### Wireframe
 
 My wireframe was created using the Balsamiq program, and shows the basic layout for the website in desktop as well as responsive formats such as smartphones and tablets.
 Notes describing each wireframe are included below each page of the PDF, linked below.
 [Wireframe PDF made in Balsamiq](https://github.com/CosmicAsad/DCD-Milestone-Project-3/blob/master/static/wireframes/MS3-wireframe.pdf)
+
+---
 
 ## Features
 
@@ -94,6 +104,8 @@ Notes describing each wireframe are included below each page of the PDF, linked 
 
 1. Expand on profile page
 
+---
+
 ## Technologies Used
 
 The main technologies used for this project are as follows:
@@ -109,6 +121,8 @@ The main technologies used for this project are as follows:
 9. Google Chrome browser Developer Tools - Used for testing during development.
 
 All other installed packages are listed in [requirements.txt](/https://github.com/CosmicAsad/DCD-Milestone-Project-3/blob/master/requirements.txt)
+
+---
 
 ## Testing
 
@@ -139,9 +153,63 @@ All other installed packages are listed in [requirements.txt](/https://github.co
 
 - When testing smaller screen sizes using Chrome Developer Tools, the page formatting can display incorrectly. This can be fixed by clearing the cache using Ctrl + shift + r.
 
+---
+
 ## Deployment
 
-The project is deployed using Heroku, with the repository on GitHub.
+1. To clone the repository, type the following command into your terminal:
+- git clone https://github.com/CosmicAsad/DCD-Milestone-Project-3
+2. Change your directory to the cloned directory using the CD command in the terminal.
+3. Create an env.py file in the root directoy and set up the following environment variables to link to your MongoDB Atlas:
+   - At the top of the file, import os
+   - Create the MONGO_URI and SECRET_KEY variables
+   - Set the IP and PORT
+4. Install the requirements.txt file using: 'pip3 install -r requirements.txt'
+5. In your MongoDB Atlas, create a new database called 'games_db', and add 3 collections, with the following documents:
+    1. games
+      - game_name
+      - game_genre
+      - game_description
+      - game_img
+    
+    2. reviews
+      - review
+      - created_by
+      - game_id
+
+    3. users
+      - username
+      - password
+
+6. Run the app using python3 app.py
+
+### Heroku Deployment
+
+To deploy the app using Heroku, use the following steps:
+
+1. Use pip3 freeze > requirements.txt to create a list of the dependencies for the website.
+2. Create a Procfile for Heroku using this command: echo web: python app.py > Procfile
+3. Use git add -A , git commit -m "(Your commit message)" , and git push , to push these files to your GitHub repository.
+4. Navigate to Heroku and log in.
+5. Create a new app by navigating to 'New' and 'Create New App'. Enter your app name and select your region and create app.
+6. Under the 'Deploy' tab, select 'GitHub - Connect to GitHub'.
+7. Enter your repository's name in the input field, and connect once found.
+8. To set your environment variables navigate to the 'Settings' tab and scroll down to 'reveal config vars'
+9. Add the following variables:
+
+
+| Key | Value |
+|:---:|:-----:|
+| IP | 0.0.0.0 |
+| PORT | 5000 |
+| MONGO_DBNAME | (The name of your MongoDB database) |
+| MONGO_URI | (Your MongoURI can be retrieved by going to MongoDB -> Collections -> Connect -> Connect to your application. Here you can use your credentials to generate the URI.) |
+| SECRET_KEY | (The secret key is a unique key known only to the developer) |
+
+10. Navigate to the 'Deploy' tab. To enable automatic deployment, scroll down to the 'Automatic Deploys' section.
+11. Choose your GitHub branch and enable automatic deployment.
+
+---
 
 ## Credits
 
