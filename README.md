@@ -153,6 +153,12 @@ All other installed packages are listed in [requirements.txt](/https://github.co
 
 - When testing smaller screen sizes using Chrome Developer Tools, the page formatting can display incorrectly. This can be fixed by clearing the cache using Ctrl + shift + r.
 
+**Validation testing**
+
+- HTML code was validated using the W3C Markup Validation Service, with no unexpected errors.
+- CSS code was validated using the W3C Markup Validation Service, with no unexpected errors.
+- Python code was validated using the [ExtendsClass Python Syntax Checker](https://extendsclass.com/python-tester.html) with no syntax errors found.
+
 ---
 
 ## Deployment
