@@ -1,6 +1,6 @@
 # The Game Corner
 
-![Various Devices](/workspace/DCD-Milestone-Project-3/static/img/responsive.png)
+![Various Devices](https://github.com/CosmicAsad/DCD-Milestone-Project-3/blob/master/static/img/responsive.png)
 
 The Game Corner is a website dedicated to compiling and providing reviews of video games. 
 The website allows user input to search for and view information about various video games, as well as allowing them to write their own reviews, to recommend or criticise the respective video game.
@@ -72,7 +72,7 @@ The colour scheme is designed to be visually appealing to the target audience of
 
 My wireframe was created using the Balsamiq program, and shows the basic layout for the website in desktop as well as responsive formats such as smartphones and tablets.
 Notes describing each wireframe are included below each page of the PDF, linked below.
-[Wireframe PDF made in Balsamiq](/workspace/DCD-Milestone-Project-3/MS3-wireframe.pdf)
+[Wireframe PDF made in Balsamiq](https://github.com/CosmicAsad/DCD-Milestone-Project-3/blob/master/static/wireframes/MS3-wireframe.pdf)
 
 ## Features
 
@@ -108,7 +108,7 @@ The main technologies used for this project are as follows:
 8. Materialize CSS - To provide styling and structure for the elements on the webpage.
 9. Google Chrome browser Developer Tools - Used for testing during development.
 
-All other installed packages are listed in [requirements.txt](/workspace/DCD-Milestone-Project-3/requirements.txt)
+All other installed packages are listed in [requirements.txt](/https://github.com/CosmicAsad/DCD-Milestone-Project-3/blob/master/requirements.txt)
 
 ## Testing
 
