@@ -130,6 +130,7 @@ def add_review(game_id):
     return render_template("add_review.html", game=game)
 
 
+# Route for edit review page
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     if request.method == "POST":
@@ -148,6 +149,7 @@ def edit_review(review_id):
     return render_template("edit_review.html", review=review, game=game)
 
 
+# Route to delete review
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
