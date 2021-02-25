@@ -122,6 +122,10 @@ The main technologies used for this project are as follows:
 
 All other installed packages are listed in [requirements.txt](/https://github.com/CosmicAsad/DCD-Milestone-Project-3/blob/master/requirements.txt)
 
+### Security
+
+The user authentication uses SHA256 encryption. In addition, blank forms are not able to be submitted to gain access to the site features, as well as only the admin user being able to create, read, update and delete games.
+
 ---
 
 ## Testing
@@ -171,21 +175,21 @@ All other installed packages are listed in [requirements.txt](/https://github.co
    - Create the MONGO_URI and SECRET_KEY variables
    - Set the IP and PORT
 4. Install the requirements.txt file using: 'pip3 install -r requirements.txt'
-5. In your MongoDB Atlas, create a new database called 'games_db', and add 3 collections, with the following documents:
+5. To create the data schema in your MongoDB Atlas, create a new database called 'games_db', and add 3 collections, with the following documents:
     1. games
-      - game_name
-      - game_genre
-      - game_description
-      - game_img
+        - game_name
+        - game_genre
+        - game_description
+        - game_img
     
     2. reviews
-      - review
-      - created_by
-      - game_id
+        - review
+        - created_by
+        - game_id
 
     3. users
-      - username
-      - password
+        - username
+        - password
 
 6. Run the app using python3 app.py
 
